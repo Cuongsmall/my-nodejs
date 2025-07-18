@@ -23,5 +23,8 @@
     "url": "https://github.com/Cuongsmall/my-nodejs/issues"
   },
   "homepage": "https://github.com/Cuongsmall/my-nodejs#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "express": "5.0.1"
+  }
 }
