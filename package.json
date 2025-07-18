@@ -1,0 +1,27 @@
+{
+  "name": "my-nodejs",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cuongsmall/my-nodejs.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "mongodb"
+  ],
+  "author": {
+    "name": "Nguyen Minh Cuong",
+    "email": "hellobiwn@gmail.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cuongsmall/my-nodejs/issues"
+  },
+  "homepage": "https://github.com/Cuongsmall/my-nodejs#readme",
+  "description": ""
+}
