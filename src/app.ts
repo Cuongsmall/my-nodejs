@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 
 //config view engine
 app.set('view engine', 'ejs');
-app.set('views', __dirname + '/view');
+app.set('views', __dirname + '/views');
 
 //config router 
 webRouters(app);
