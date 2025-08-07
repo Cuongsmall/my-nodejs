@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
-import { getAllUsers, getUserById, handleCreateUser, handleDeleteUser, updateUserById } from "services/user.service";
+import { getAllRoles, getAllUsers, getUserById, handleCreateUser, handleDeleteUser, updateUserById } from "services/user.service";
 
 const getHomePage = async (req: Request, res: Response) => {
     const users = await getAllUsers();
-    // console.log("check", users)
+    console.log("check", users)
     return res.render('home', {
         users: users
     })
@@ -11,19 +11,22 @@ const getHomePage = async (req: Request, res: Response) => {
 const postUpdateUserPage = async (req: Request, res: Response) => {
     const { id, fullName, email, address } = req.body;
     await updateUserById(id, fullName, email, address);
-    console.log({ id, fullName, email, address });
+    // console.log({ id, fullName, email, address });
     return res.redirect('/')
 }
-const getUserPage = (req: Request, res: Response) => {
+const getUserPage = async (req: Request, res: Response) => {
+    const roles = await getAllRoles()
 
-    return res.render('create-user')
+    return res.render('admin/user/create', {
+        roles: roles
+    })
 
 }
 
 const postUserPage = async (req: Request, res: Response) => {
-    const { fullName, email, address } = req.body;
+    const { fullName, username, phone, role, address } = req.body;
 
-    const a = await handleCreateUser(fullName, email, address);
+    // const a = await handleCreateUser(fullName, email, address);
     return res.redirect('/') //chuyen huong
 }
 const postDeleteUserPage = async (req: Request, res: Response) => {
