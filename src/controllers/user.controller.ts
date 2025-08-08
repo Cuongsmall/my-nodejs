@@ -25,9 +25,10 @@ const getUserPage = async (req: Request, res: Response) => {
 
 const postUserPage = async (req: Request, res: Response) => {
     const { fullName, username, phone, role, address } = req.body;
-
-    // const a = await handleCreateUser(fullName, email, address);
-    return res.redirect('/') //chuyen huong
+    const file = req.file;
+    const avatar = file?.filename ?? "";
+    await handleCreateUser(fullName, username, address, phone, avatar, role);
+    return res.redirect('/admin/user') //chuyen huong
 }
 const postDeleteUserPage = async (req: Request, res: Response) => {
     const { id } = req.params;
