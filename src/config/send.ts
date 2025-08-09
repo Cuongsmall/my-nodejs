@@ -22,7 +22,7 @@ const initDatabase = async () => {
             ]
         })
     }
-    else if (countUser === 0) {
+    if (countUser === 0) {
         const defaultPassword = await hashPassword("123456")
         const adminRole = await prisma.role.findFirst({
             where: { name: 'ADMIN' }
@@ -54,7 +54,7 @@ const initDatabase = async () => {
                 ]
             })
     }
-    else {
+    if (countUser !== 0 && countRole !== 0) {
         console.log("have data")
     }
 }
