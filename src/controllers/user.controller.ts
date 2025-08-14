@@ -2,15 +2,12 @@ import { Request, Response } from "express";
 import { getAllRoles, getAllUsers, getUserById, handleCreateUser, handleDeleteUser, updateUserById } from "services/user.service";
 
 const getHomePage = async (req: Request, res: Response) => {
-    const users = await getAllUsers();
-    console.log("check", users)
-    return res.render('home', {
-        users: users
-    })
+
+    return res.render('client/home/show')
 }
 const postUpdateUserPage = async (req: Request, res: Response) => {
     const { id, fullName, email, address } = req.body;
-    await updateUserById(id, fullName, email, address);
+    // await updateUserById(id, fullName, email, address);
     // console.log({ id, fullName, email, address });
     return res.redirect('/')
 }

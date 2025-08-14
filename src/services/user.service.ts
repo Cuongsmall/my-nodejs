@@ -40,19 +40,20 @@ const getUserById = async (id: string) => {
     });
     return user;
 }
-const updateUserById = async (id: string, fullName: string, email: string, address: string) => {
+const updateUserById = async (id: string, fullName: string, phone: string, role: string, address: string, avatar: string) => {
     const user = await prisma.user.update({
         where: {
             id: +id, // conver tu number >string +
         },
         data: {
             fullName: fullName,
-            username: email,
+            phone: phone,
             address: address,
-            password: "",
-            accountType: "",
+            roleId: +role,
+            ...(avatar !== undefined && { avatar: avatar })
         },
     })
+    // return user;
 }
 const getAllUsers = async () => {
     const users = await prisma.user.findMany();
