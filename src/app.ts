@@ -5,6 +5,8 @@ import 'dotenv/config'
 import webRouters from "./routes/wed";
 import { initDatabase } from "config/send";
 
+
+
 const app = express();
 const PORT = process.env.PORT || 8080;
 
