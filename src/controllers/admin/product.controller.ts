@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { createProduct } from "services/admin/product.service";
 import { ProductSchema, TProductSchema } from "src/validation/product.schema";
 import { map } from "zod";
 
@@ -34,7 +35,10 @@ const postAdminCreateProduct = async (req: Request, res: Response) => {
             errors, oldData
         })
     }
-    return res.redirect('admin/product')
+    // success, create new product
+    const img = req?.file?.filename ?? null;
+    await createProduct(name, +price, img, detailDesc, shortDesc, +quantity, target, factory)
+    return res.redirect('/admin/product')
 }
 
 export { getAdminCreateProductPage, postAdminCreateProduct }
